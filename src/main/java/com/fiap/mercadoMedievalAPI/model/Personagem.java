@@ -1,6 +1,7 @@
 package com.fiap.mercadoMedievalAPI.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -13,9 +14,12 @@ import java.util.List;
 @Entity
 @Data
 @Builder
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Personagem {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,6 +37,7 @@ public class Personagem {
     @Min(value = 0, message = "O saldo de moedas não pode ser negativo.")
     private int moedas;
 
-    @ElementCollection
-    private List<Long> itens = new ArrayList<>();
+    @OneToMany(mappedBy = "dono", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("dono")
+    private List<Item> itens;
 }

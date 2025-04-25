@@ -1,12 +1,23 @@
 package com.fiap.mercadoMedievalAPI.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class item {
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,11 +27,15 @@ public class item {
     private String nome;
 
     @NotBlank(message = "Tipo do item é obrigatório")
-    private String tipo; // arma, armadura, poção, acessório
+    private String tipo;
 
     @NotBlank(message = "Raridade do item é obrigatória")
-    private String raridade; // comum, raro, épico, lendário
+    private String raridade;
 
     @Min(value = 0, message = "O preço não pode ser negativo")
     private double preco;
+
+    @ManyToOne
+    @JsonIgnoreProperties("itens")
+    private Personagem dono;
 }
