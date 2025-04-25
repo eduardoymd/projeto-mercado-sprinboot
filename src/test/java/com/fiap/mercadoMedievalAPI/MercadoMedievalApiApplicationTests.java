@@ -1,10 +1,10 @@
-package com.fiap.projetoMercado;
+package com.fiap.mercadoMedievalAPI;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProjetoMercadoApplicationTests {
+class MercadoMedievalApiApplicationTests {
 
 	@Test
 	void contextLoads() {

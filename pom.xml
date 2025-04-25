@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.fiap</groupId>
-	<artifactId>projetoMercado</artifactId>
+	<artifactId>mercadoMedievalAPI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>projetoMercado</name>
-	<description>Projeto para a faculdade API de um mercado medieval</description>
+	<name>mercadoMedievalAPI</name>
+	<description>Api de um mercado medieval</description>
 	<url/>
 	<licenses>
 		<license/>
